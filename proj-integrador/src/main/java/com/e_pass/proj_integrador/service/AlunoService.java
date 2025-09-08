@@ -1,0 +1,37 @@
+package com.e_pass.proj_integrador.service;
+
+import com.e_pass.proj_integrador.model.Aluno;
+import com.e_pass.proj_integrador.repository.AlunoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.Optional;
+
+@Service
+public class AlunoService {
+
+    @Autowired
+    private final AlunoRepository alunoRepository;
+
+
+    public AlunoService(AlunoRepository alunoRepository) {
+        this.alunoRepository = alunoRepository;
+
+        
+    }
+
+    public Aluno save(Aluno aluno) {
+        return alunoRepository.save(aluno);
+    }
+
+    public Iterable<Aluno> findAll() {
+        return alunoRepository.findAll();
+    }
+
+    public Optional<Aluno> findById(long id) {
+        return alunoRepository.findById(id);
+    }
+
+    public void deleteById(long id) {
+        alunoRepository.deleteById(id);
+    }
+}
