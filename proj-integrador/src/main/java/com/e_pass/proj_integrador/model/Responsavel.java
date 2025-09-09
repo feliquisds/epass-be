@@ -4,7 +4,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 public class Responsavel {
@@ -16,7 +18,12 @@ public class Responsavel {
     private String cpf;
     private String email;
 
-    @OneToMany(mappedBy = "responsavel")
+    @ManyToMany
+    @JoinTable(
+        name = "responsavel_aluno", // tabela intermediária
+        joinColumns = @JoinColumn(name = "responsavel_id"),
+        inverseJoinColumns = @JoinColumn(name = "aluno_id")
+    )
     private List<Aluno> alunos;
 
 
