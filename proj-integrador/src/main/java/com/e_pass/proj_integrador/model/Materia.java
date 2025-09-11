@@ -1,14 +1,11 @@
-
 package com.e_pass.proj_integrador.model;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,37 +22,19 @@ import lombok.Setter;
     generator = ObjectIdGenerators.PropertyGenerator.class,
     property = "id"
 )
-public class Aluno {
+public class Materia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long ID;
-
-    @Column(unique = true)
-    private long matricula;
-
-    private String nome;
-    private String sobrenome;
-
-    @Column(unique = true)
-    private String cpf;
-
-    private Date dataNascimento;
-
-    private String contatoResponsavel;
-
-    private String endereco;
-
-    private String emailResponsavel;
-
-    private String tipoSanguineo;
+    public String nome;
+    public String descricao;
+    public int cargaHoraria;
 
 
-    @ManyToMany(mappedBy = "alunos")
-    private List<Responsavel> responsaveis = new ArrayList<>();
+    @ManyToMany(mappedBy = "materias")
+    private List<Turma> turmas = new ArrayList<>();
 
-    public Aluno() {
-    }
 
-   
+
 }

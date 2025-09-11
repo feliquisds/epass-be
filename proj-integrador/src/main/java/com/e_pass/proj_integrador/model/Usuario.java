@@ -24,7 +24,6 @@ public class Usuario {
     @JoinColumn(name = "id_professor") 
     private Professor professor;
 
-    // FALTA CRIAR A TABELA RESPONSÁVEL
     @OneToOne
     @JoinColumn(name = "id_responsavel") 
         private Responsavel responsavel;
