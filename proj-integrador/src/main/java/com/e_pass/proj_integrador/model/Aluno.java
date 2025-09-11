@@ -13,7 +13,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,13 +25,13 @@ import lombok.Setter;
 @Setter
 @JsonIdentityInfo(
     generator = ObjectIdGenerators.PropertyGenerator.class,
-    property = "id"
+    property = "idAluno"
 )
 public class Aluno {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long ID;
+    private long idAluno;
 
     @Column(unique = true)
     private long matricula;
@@ -54,8 +56,17 @@ public class Aluno {
     @ManyToMany(mappedBy = "alunos")
     private List<Responsavel> responsaveis = new ArrayList<>();
 
+    @OneToMany
+    @JoinColumn(name = "id_aluno")
+    private List<Documento> documentos;
+
+    // @OneToMany(mappedBy = "aluno", cascade = CascadeType.ALL)
+    // private List<Frequencia> frequencias;
+
     public Aluno() {
     }
+
+
 
    
 }

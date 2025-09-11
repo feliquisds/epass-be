@@ -15,7 +15,6 @@ public class AlunoService {
 
     public AlunoService(AlunoRepository alunoRepository) {
         this.alunoRepository = alunoRepository;
-
         
     }
 

@@ -39,7 +39,7 @@ public class AlunoController {
     @Operation(summary = "Atualiza um aluno no banco de dados")
     @PostMapping("/update/{id}")
     public Aluno update(@PathVariable long id, @RequestBody Aluno a) {
-        a.setID(id);
+        a.setIdAluno(id);
         Aluno novo_aluno = alunoService.save(a);
         return novo_aluno;
     }

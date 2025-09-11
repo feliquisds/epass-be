@@ -35,7 +35,7 @@ public class Responsavel {
     @JoinTable(
         name = "relacao_responsavel_aluno", // tabela intermediária
         joinColumns = @JoinColumn(name = "responsavel_id", referencedColumnName = "ID"),
-        inverseJoinColumns = @JoinColumn(name = "aluno_id", referencedColumnName = "ID")
+        inverseJoinColumns = @JoinColumn(name = "aluno_id", referencedColumnName = "idAluno")
     )
     private List<Aluno> alunos = new ArrayList<>();
 
