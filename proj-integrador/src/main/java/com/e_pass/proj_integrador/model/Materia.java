@@ -27,6 +27,10 @@ public class Materia {
     @JoinColumn(name = "id_materia")
     private List<Aula> aulas;
 
+    @OneToMany
+    @JoinColumn(name = "id_materia")
+    private List<Atividade> atividades;
+
 
     // @ManyToMany(mappedBy = "materias")
     // private List<Turma> turmas = new ArrayList<>();
