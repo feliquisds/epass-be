@@ -24,9 +24,12 @@ public class Frequencia {
     private Boolean presenca;
 
     @ManyToOne
-    @JoinColumn(name = "id_frequencia")
-    private Aluno aluno;
+    @JoinColumn(name = "aula_id")
+    private Aula aula;
 
+    @ManyToOne
+    @JoinColumn(name = "aluno_id")
+    private Aluno aluno;
 
 
    

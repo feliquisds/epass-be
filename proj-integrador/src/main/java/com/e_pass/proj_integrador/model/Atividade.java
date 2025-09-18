@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,6 +27,17 @@ public class Atividade {
     private long peso;
 
     private Date data;
+
+    @ManyToOne
+    @JoinColumn(name = "aula_id")
+    private Aula aula;
+
+    @ManyToOne
+    @JoinColumn(name = "aluno_id")
+    private Aluno aluno;
+
+    // @OneToMany(mappedBy = "atividade")
+    // private List<Nota> notas;
 
     
 }

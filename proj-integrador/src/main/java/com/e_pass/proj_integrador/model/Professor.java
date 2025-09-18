@@ -3,12 +3,15 @@ package com.e_pass.proj_integrador.model;
 import java.sql.Date;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -39,6 +42,13 @@ public class Professor {
     @OneToMany
     @JoinColumn(name = "id_professor")
     private List<Materia> materias;
+
+    @OneToMany(mappedBy = "professor")
+    private List<Aula> aulas;
+
+    @ManyToMany(mappedBy = "professores")
+    @JsonBackReference
+    private List<Turma> turmas;
 
    
 }

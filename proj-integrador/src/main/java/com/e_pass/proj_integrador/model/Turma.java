@@ -1,10 +1,15 @@
 package com.e_pass.proj_integrador.model;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -25,18 +30,36 @@ public class Turma {
 
     @OneToMany
     @JoinColumn(name = "id_turma")
+    @JsonManagedReference
     private List<Aluno> alunos;
 
-    @OneToMany
-    @JoinColumn(name = "id_turma")
+    @ManyToMany
+    @JoinTable(
+        name = "turma_materia",
+        joinColumns = @JoinColumn(name = "turma_id"),
+        inverseJoinColumns = @JoinColumn(name = "materia_id")
+    )
     private List<Materia> materias;
+
+
+    @OneToMany(mappedBy = "turma")
+    private List<Aula> aulas;
+
+    @ManyToMany
+    @JoinTable(
+        name = "turma_professor",
+        joinColumns = @JoinColumn(name = "turma_id"),
+        inverseJoinColumns = @JoinColumn(name = "professor_id")
+    )
+    @JsonManagedReference
+    private List<Professor> professores;
 
     // @ManyToMany
     // @JoinTable(
-    //     name = "relacao_turma_materia", // tabela intermediária
-    //     joinColumns = @JoinColumn(name = "turma_id", referencedColumnName = "ID"),
-    //     inverseJoinColumns = @JoinColumn(name = "materia_id", referencedColumnName = "ID")
+    //     name = "turma_disciplina",
+    //     joinColumns = @JoinColumn(name = "turma_id"),
+    //     inverseJoinColumns = @JoinColumn(name = "disciplina_id")
     // )
-    // private List<Materia> materias = new ArrayList<>();
+    // private List<Disciplina> disciplinas;
 
 }

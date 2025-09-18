@@ -33,7 +33,8 @@ public class AtividadeController {
     @Operation(summary = "Salva uma atividade no banco de dados")
     @PostMapping("/save")
     public Atividade save(@RequestBody Atividade a) {
-        return atividadeService.save(a);
+        Atividade nova_atividade = atividadeService.save(a);
+        return nova_atividade;
     }
     
     @Operation(summary = "Atualiza uma atividade no banco de dados")

@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,10 +24,10 @@ public class Materia {
     public String descricao;
     public int cargaHoraria;
 
-    @OneToMany
-    @JoinColumn(name = "id_materia")
-    private List<Aula> aulas;
+    @ManyToMany(mappedBy = "materias")
+    private List<Turma> turmas;
 
+    
     @OneToMany
     @JoinColumn(name = "id_materia")
     private List<Atividade> atividades;

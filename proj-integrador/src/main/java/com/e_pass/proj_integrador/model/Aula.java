@@ -11,6 +11,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,6 +37,17 @@ public class Aula {
 
     // @OneToMany(mappedBy = "aula", cascade = CascadeType.ALL)
     // private List<Frequencia> frequencias;
+
+    @ManyToOne
+    @JoinColumn(name = "turma_id")
+    private Turma turma;
+
+    @ManyToOne
+    @JoinColumn(name = "professor_id")
+    private Professor professor;
+
+    @OneToMany(mappedBy = "aula")
+    private List<Atividade> atividades;
 
     @OneToMany
     @JoinColumn(name = "id_aula")
