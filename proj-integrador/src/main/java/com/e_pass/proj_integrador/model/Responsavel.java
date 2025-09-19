@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.Entity;
@@ -37,6 +38,7 @@ public class Responsavel {
         joinColumns = @JoinColumn(name = "responsavel_id", referencedColumnName = "ID"),
         inverseJoinColumns = @JoinColumn(name = "aluno_id", referencedColumnName = "idAluno")
     )
+    @JsonIgnore
     private List<Aluno> alunos = new ArrayList<>();
 
 

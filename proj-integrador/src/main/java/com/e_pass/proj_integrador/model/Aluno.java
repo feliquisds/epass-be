@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
@@ -55,6 +56,7 @@ public class Aluno {
 
 
     @ManyToMany(mappedBy = "alunos")
+    @JsonBackReference
     private List<Responsavel> responsaveis = new ArrayList<>();
 
     @OneToMany

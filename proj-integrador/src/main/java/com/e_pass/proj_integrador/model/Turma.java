@@ -1,7 +1,6 @@
 package com.e_pass.proj_integrador.model;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -30,7 +29,6 @@ public class Turma {
 
     @OneToMany
     @JoinColumn(name = "id_turma")
-    @JsonManagedReference
     private List<Aluno> alunos;
 
     @ManyToMany
@@ -51,7 +49,6 @@ public class Turma {
         joinColumns = @JoinColumn(name = "turma_id"),
         inverseJoinColumns = @JoinColumn(name = "professor_id")
     )
-    @JsonManagedReference
     private List<Professor> professores;
 
     // @ManyToMany
