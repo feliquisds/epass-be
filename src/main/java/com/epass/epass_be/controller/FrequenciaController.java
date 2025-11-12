@@ -2,13 +2,10 @@ package com.epass.epass_be.controller;
 
 import com.epass.epass_be.model.Frequencia;
 import com.epass.epass_be.service.FrequenciaService;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -33,7 +30,7 @@ public class FrequenciaController {
     @Operation(summary = "Atualiza uma frequência no banco de dados")
     @PostMapping("/update/{id}")
     public Frequencia update(@PathVariable long id, @RequestBody Frequencia f) {
-        f.setID(id);
+        f.setId(id);
         return frequenciaService.save(f);
     }
 
@@ -54,4 +51,5 @@ public class FrequenciaController {
     public void delete(@PathVariable long id) {
         frequenciaService.deleteById(id);
     }
+
 }

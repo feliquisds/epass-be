@@ -1,9 +1,8 @@
 package com.epass.epass_be.controller;
+
 import com.epass.epass_be.model.Responsavel;
 import com.epass.epass_be.service.ResponsavelService;
-
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
@@ -16,7 +15,6 @@ public class ResponsavelController {
 
     @Autowired
     private final ResponsavelService responsavelService;
-
 
     public ResponsavelController(ResponsavelService responsavelService) {
         this.responsavelService = responsavelService;
@@ -53,4 +51,5 @@ public class ResponsavelController {
     public void delete(@PathVariable long id) {
         responsavelService.deleteById(id);
     }
+
 }

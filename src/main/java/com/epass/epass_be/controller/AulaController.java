@@ -1,23 +1,18 @@
 package com.epass.epass_be.controller;
+
 import com.epass.epass_be.model.Aula;
 import com.epass.epass_be.service.AulaService;
-
-
 import java.util.Optional;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Tag(name = "Aula Controller")
 @RestController
 @RequestMapping("/aula")
 public class AulaController {
-    
 
     @Autowired
     private final AulaService aulaService;
@@ -35,7 +30,7 @@ public class AulaController {
     @Operation(summary = "Atualiza uma turma no banco de dados")
     @PostMapping("/update/{id}")
     public Aula update(@PathVariable long id, @RequestBody Aula a) {
-        a.setIdAula(id);
+        a.setId(id);
         Aula nova_aula = aulaService.save(a);
         return nova_aula;
     }
@@ -57,4 +52,5 @@ public class AulaController {
     public void delete(@PathVariable long id) {
         aulaService.deleteById(id);
     }
+
 }

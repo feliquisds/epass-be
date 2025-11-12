@@ -1,4 +1,5 @@
 package com.epass.epass_be.service;
+
 import com.epass.epass_be.repository.AulaRepository;
 import com.epass.epass_be.model.Aula;
 import java.util.Optional;
@@ -30,6 +31,5 @@ public class AulaService {
     public void deleteById(long id) {
         aulaRepository.deleteById(id);
     }
-
     
 }

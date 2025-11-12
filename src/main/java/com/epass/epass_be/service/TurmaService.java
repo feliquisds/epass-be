@@ -1,4 +1,5 @@
 package com.epass.epass_be.service;
+
 import com.epass.epass_be.repository.TurmaRepository;
 import com.epass.epass_be.model.Turma;
 import java.util.Optional;
@@ -30,6 +31,5 @@ public class TurmaService {
     public void deleteById(long id) {
         turmaRepository.deleteById(id);
     }
-
     
 }

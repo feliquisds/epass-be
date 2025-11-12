@@ -1,23 +1,18 @@
 package com.epass.epass_be.controller;
+
 import com.epass.epass_be.model.Turma;
 import com.epass.epass_be.service.TurmaService;
-
-
 import java.util.Optional;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @Tag(name = "Turma Controller")
 @RestController
 @RequestMapping("/turma")
 public class TurmaController {
-    
 
     @Autowired
     private final TurmaService turmaService;
@@ -35,7 +30,7 @@ public class TurmaController {
     @Operation(summary = "Atualiza uma turma no banco de dados")
     @PostMapping("/update/{id}")
     public Turma update(@PathVariable long id, @RequestBody Turma a) {
-        a.setID(id);
+        a.setId(id);
         Turma nova_turma = turmaService.save(a);
         return nova_turma;
     }
@@ -57,4 +52,5 @@ public class TurmaController {
     public void delete(@PathVariable long id) {
         turmaService.deleteById(id);
     }
+
 }

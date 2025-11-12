@@ -12,11 +12,8 @@ public class DocumentoService {
     @Autowired
     private final DocumentoRepository documentoRepository;
 
-
     public DocumentoService(DocumentoRepository documentoRepository) {
         this.documentoRepository = documentoRepository;
-
-        
     }
 
     public Documento save(Documento documento) {
@@ -34,4 +31,5 @@ public class DocumentoService {
     public void deleteById(long id) {
         documentoRepository.deleteById(id);
     }
+    
 }

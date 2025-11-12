@@ -1,10 +1,10 @@
 package com.epass.epass_be.repository;
-import com.epass.epass_be.model.Materia;
+
+import com.epass.epass_be.model.Disciplina;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
-public interface MateriaRepository extends CrudRepository<Materia, Long> {
-    
+public interface DisciplinaRepository extends CrudRepository<Disciplina, Long> {
+
 }

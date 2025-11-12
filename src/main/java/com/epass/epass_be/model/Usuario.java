@@ -1,104 +1,44 @@
 package com.epass.epass_be.model;
-import jakarta.persistence.*;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.Enumerated;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class Usuario {
 
-    // ATRIBUTOS
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @NotNull
+    @Column(unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @NotNull
     private String senha;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @NotNull
     private TipoUsuario tipo;
 
     @OneToOne
-    @JoinColumn(name = "id_professor") 
+    @JoinColumn
     private Professor professor;
 
     @OneToOne
-    @JoinColumn(name = "id_responsavel") 
-        private Responsavel responsavel;
-
-    
-    // CONSTRUTORES
-    public Usuario() {
-    }
-    
-
-    public Usuario(Long id, String email, String senha, TipoUsuario tipo, Professor professor) {
-        this.id = id;
-        this.email = email;
-        this.senha = senha;
-        this.tipo = tipo;
-        this.professor = professor;
-    }
-  
-
-
-
-
-    // GETTERS E SETTERS
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public TipoUsuario getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(TipoUsuario tipo) {
-        this.tipo = tipo;
-    }
-
-
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
-
-    public Responsavel getResponsavel() {
-        return responsavel;
-    }
-
-
-    public void setResponsavel(Responsavel responsavel) {
-        this.responsavel = responsavel;
-    }
-
-
-
-
-
+    @JoinColumn
+    private Responsavel responsavel;
 
 }

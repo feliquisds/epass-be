@@ -15,4 +15,5 @@ public class LoginController {
     public String home() {
         return "home"; // home.html no templates
     }
+    
 }

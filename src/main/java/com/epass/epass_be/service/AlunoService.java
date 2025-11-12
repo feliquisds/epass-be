@@ -12,10 +12,8 @@ public class AlunoService {
     @Autowired
     private final AlunoRepository alunoRepository;
 
-
     public AlunoService(AlunoRepository alunoRepository) {
         this.alunoRepository = alunoRepository;
-        
     }
 
     public Aluno save(Aluno aluno) {
@@ -33,4 +31,5 @@ public class AlunoService {
     public void deleteById(long id) {
         alunoRepository.deleteById(id);
     }
+    
 }

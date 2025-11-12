@@ -12,11 +12,8 @@ public class CompraService {
     @Autowired
     private final CompraRepository CompraRepository;
 
-
     public CompraService(CompraRepository compraRepository) {
         this.CompraRepository = compraRepository;
-
-        
     }
 
     public Compra save(Compra compra) {
@@ -34,4 +31,5 @@ public class CompraService {
     public void deleteById(long id) {
         CompraRepository.deleteById(id);
     }
+    
 }

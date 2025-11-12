@@ -1,4 +1,5 @@
 package com.epass.epass_be.model;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.Getter;
@@ -13,16 +14,11 @@ public class Secretaria {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer ID;
+    private Integer id;
 
     private String telefone;
-
     private String email;
-
     private String endereco;
-
     private String website;
-
-
-   
+    
 }

@@ -1,6 +1,5 @@
 package com.epass.epass_be.model;
 
-import java.sql.Date;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,18 +12,21 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-public class Documento {
+public class Disciplina {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Date dataPedido;
-    private Date dataEmissao;
-    private String status;
-    private String pathDocumento;
+
+    private String nome;
+    private String descricao;
+    private int cargaHoraria;
+
+    @ManyToOne
+    private Professor professor;
 
     @ManyToOne
     @JoinColumn
-    private Aluno aluno;
+    private Turma turma;
     
 }

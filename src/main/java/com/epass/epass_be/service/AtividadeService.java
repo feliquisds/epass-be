@@ -12,10 +12,8 @@ public class AtividadeService {
     @Autowired
     private final AtividadeRepository atividadeRepository;
 
-
     public AtividadeService(AtividadeRepository atividadeRepository) {
         this.atividadeRepository = atividadeRepository;
-        
     }
 
     public Atividade save(Atividade aluno) {
@@ -33,4 +31,5 @@ public class AtividadeService {
     public void deleteById(long id) {
         atividadeRepository.deleteById(id);
     }
+    
 }

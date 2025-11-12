@@ -2,10 +2,8 @@ package com.epass.epass_be.controller;
 
 import com.epass.epass_be.model.Compra;
 import com.epass.epass_be.service.CompraService;
-
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 
@@ -39,11 +36,11 @@ public class CompraController {
     @Operation(summary = "Atualiza uma compra no banco de dados")
     @PostMapping("/update/{id}")
     public Compra update(@PathVariable long id, @RequestBody Compra d) {
-        d.setID(id); // assumindo que o Compra possui o método setId
+        d.setId(id);
         return compraService.save(d);
     }
 
-    @Operation(summary = "Lista todos as compras do banco de dados")
+    @Operation(summary = "Lista todas as compras do banco de dados")
     @GetMapping("/findAll")
     public List<Compra> findAll() {
         return (List<Compra>) compraService.findAll();
@@ -60,4 +57,5 @@ public class CompraController {
     public void delete(@PathVariable long id) {
         compraService.deleteById(id);
     }
+
 }

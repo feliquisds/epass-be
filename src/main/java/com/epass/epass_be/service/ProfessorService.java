@@ -1,4 +1,5 @@
 package com.epass.epass_be.service;
+
 import com.epass.epass_be.repository.ProfessorRepository;
 import com.epass.epass_be.model.Professor;
 import java.util.Optional;
@@ -27,7 +28,8 @@ public class ProfessorService {
         return professorRepository.findById(id);
     }
 
-      public void deleteById(long id) {
+    public void deleteById(long id) {
         professorRepository.deleteById(id);
     }
+    
 }

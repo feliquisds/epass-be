@@ -1,9 +1,8 @@
 package com.epass.epass_be.controller;
+
 import com.epass.epass_be.model.Professor;
 import com.epass.epass_be.service.ProfessorService;
-
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import io.swagger.v3.oas.annotations.Operation;
@@ -16,7 +15,6 @@ public class ProfessorController {
 
     @Autowired
     private final ProfessorService professorService;
-
 
     public ProfessorController(ProfessorService professorService) {
         this.professorService = professorService;
@@ -53,4 +51,5 @@ public class ProfessorController {
     public void delete(@PathVariable long id) {
         professorService.deleteById(id);
     }
+
 }

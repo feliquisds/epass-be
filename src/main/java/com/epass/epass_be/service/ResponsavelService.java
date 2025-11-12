@@ -1,4 +1,5 @@
 package com.epass.epass_be.service;
+
 import com.epass.epass_be.repository.ResponsavelRepository;
 import com.epass.epass_be.model.Responsavel;
 import java.util.Optional;
@@ -27,7 +28,8 @@ public class ResponsavelService {
         return responsavelRepository.findById(id);
     }
 
-      public void deleteById(long id) {
+    public void deleteById(long id) {
         responsavelRepository.deleteById(id);
     }
+    
 }
