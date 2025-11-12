@@ -23,6 +23,7 @@ public class Disciplina {
     private int cargaHoraria;
 
     @ManyToOne
+    @JoinColumn
     private Professor professor;
 
     @ManyToOne

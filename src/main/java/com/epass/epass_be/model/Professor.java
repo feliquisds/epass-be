@@ -33,7 +33,4 @@ public class Professor {
     private Date dataNascimento;
     private String status;
 
-    @OneToMany
-    private List<Disciplina> disciplinas;
-
 }
