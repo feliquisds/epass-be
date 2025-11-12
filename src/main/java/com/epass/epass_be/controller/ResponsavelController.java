@@ -10,7 +10,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Tag(name = "Responsavel Controller")
 @RestController
-@RequestMapping("/responsaveis")
+@RequestMapping("/responsavel")
 public class ResponsavelController {
 
     @Autowired
