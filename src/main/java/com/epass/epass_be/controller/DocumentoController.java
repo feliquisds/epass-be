@@ -47,13 +47,13 @@ public class DocumentoController {
         return (List<Documento>) documentoService.findAll();
     }
 
-    @Operation(summary = "Encontra um documento pelo ID")
+    @Operation(summary = "Encontra um documento no banco de dados")
     @GetMapping("/find/{id}")
     public Optional<Documento> findById(@PathVariable long id) {
         return documentoService.findById(id);
     }
 
-    @Operation(summary = "Apaga um documento pelo ID")
+    @Operation(summary = "Apaga um documento no banco de dados")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable long id) {
         documentoService.deleteById(id);

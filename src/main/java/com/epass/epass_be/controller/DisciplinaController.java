@@ -42,7 +42,7 @@ public class DisciplinaController {
         return nova_disciplina;
     }
 
-    @Operation(summary = "Lista todas disciplinas do banco de dados")
+    @Operation(summary = "Lista todas as disciplinas do banco de dados")
     @GetMapping("/findAll")
     public List<Disciplina> findAll() {
         return (List<Disciplina>) disciplinaService.findAll();

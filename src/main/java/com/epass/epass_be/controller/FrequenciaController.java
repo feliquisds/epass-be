@@ -40,13 +40,13 @@ public class FrequenciaController {
         return (List<Frequencia>) frequenciaService.findAll();
     }
 
-    @Operation(summary = "Encontra uma frequência pelo ID")
+    @Operation(summary = "Encontra uma frequência no banco de dados")
     @GetMapping("/find/{id}")
     public Optional<Frequencia> findById(@PathVariable long id) {
         return frequenciaService.findById(id);
     }
 
-    @Operation(summary = "Apaga uma frequência pelo ID")
+    @Operation(summary = "Apaga uma frequência no banco de dados")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable long id) {
         frequenciaService.deleteById(id);

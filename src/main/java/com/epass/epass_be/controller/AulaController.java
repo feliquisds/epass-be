@@ -21,13 +21,13 @@ public class AulaController {
         this.aulaService = aulaService;
     }
 
-    @Operation(summary = "Salva uma turma no banco de dados")
+    @Operation(summary = "Salva uma aula no banco de dados")
     @PostMapping("/save")
     public Aula save(@RequestBody Aula aula) {
         return aulaService.save(aula);
     }
 
-    @Operation(summary = "Atualiza uma turma no banco de dados")
+    @Operation(summary = "Atualiza uma aula no banco de dados")
     @PostMapping("/update/{id}")
     public Aula update(@PathVariable long id, @RequestBody Aula a) {
         a.setId(id);
@@ -35,19 +35,19 @@ public class AulaController {
         return nova_aula;
     }
 
-    @Operation(summary = "Lista todas as turmas do banco de dados")
+    @Operation(summary = "Lista todas as aulas do banco de dados")
     @GetMapping("/findAll")
     public List<Aula> findAll() {
         return (List<Aula>) aulaService.findAll();
     }
 
-    @Operation(summary = "Encontra uma turma no banco de dados")
+    @Operation(summary = "Encontra uma aula no banco de dados")
     @GetMapping("/find/{id}")
     public Optional<Aula> findById(@PathVariable long id) {
         return aulaService.findById(id);
     }
 
-    @Operation(summary = "Apaga uma turma do banco de dados")
+    @Operation(summary = "Apaga uma aula do banco de dados")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable long id) {
         aulaService.deleteById(id);

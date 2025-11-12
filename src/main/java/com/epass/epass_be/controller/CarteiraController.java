@@ -46,13 +46,13 @@ public class CarteiraController {
         return (List<Carteira>) carteiraService.findAll();
     }
 
-    @Operation(summary = "Encontra uma carteira pelo ID")
+    @Operation(summary = "Encontra uma carteira no banco de dados")
     @GetMapping("/find/{id}")
     public Optional<Carteira> findById(@PathVariable long id) {
         return carteiraService.findById(id);
     }
 
-    @Operation(summary = "Apaga uma carteira pelo ID")
+    @Operation(summary = "Apaga uma carteira no banco de dados")
     @DeleteMapping("/delete/{id}")
     public void delete(@PathVariable long id) {
         carteiraService.deleteById(id);
