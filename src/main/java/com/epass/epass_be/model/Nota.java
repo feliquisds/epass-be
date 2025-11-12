@@ -24,5 +24,9 @@ public class Nota {
     @ManyToOne
     @JoinColumn
     private Atividade atividade;
+
+    @ManyToOne
+    @JoinColumn
+    private Aluno aluno;
     
 }

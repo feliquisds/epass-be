@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.ManyToMany;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -25,7 +25,7 @@ public class Turma {
     private Date dataInicio;
     private Date dataFinal;
 
-    @OneToMany
+    @ManyToMany
     private List<Aluno> alunos;
     
 }
