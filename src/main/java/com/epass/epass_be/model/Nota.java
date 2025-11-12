@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,15 +19,17 @@ public class Nota {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull
     private double nota;
-    private String status;
 
     @ManyToOne
     @JoinColumn
+    @NotNull
     private Atividade atividade;
 
     @ManyToOne
     @JoinColumn
+    @NotNull
     private Aluno aluno;
     
 }

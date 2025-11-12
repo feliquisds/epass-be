@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,14 +19,17 @@ public class Frequencia {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull
     private Boolean presenca;
 
     @ManyToOne
     @JoinColumn
+    @NotNull
     private Aula aula;
 
     @ManyToOne
     @JoinColumn
+    @NotNull
     private Aluno aluno;
     
 }

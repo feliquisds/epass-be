@@ -21,14 +21,19 @@ public class Notificacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull
     private String titulo;
+
+    @NotNull
     private String descricao;
 
     @Enumerated(EnumType.STRING)
     @NotNull
     private TipoUsuario destino;
     
-    private String tipo;
+    @Enumerated(EnumType.STRING)
+    @NotNull
+    private PrioridadeNotificacao prioridade;
 
     @ManyToOne
     @JoinColumn

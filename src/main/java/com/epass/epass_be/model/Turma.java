@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,10 +20,18 @@ public class Turma {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull
     private String nome;
+
     private String descricao;
+
+    @NotNull
     private String periodo;
+
+    @NotNull
     private Date dataInicio;
+
+    @NotNull
     private Date dataFinal;
 
     @ManyToMany

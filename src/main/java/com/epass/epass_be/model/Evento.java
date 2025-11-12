@@ -8,6 +8,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,14 +21,24 @@ public class Evento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @NotNull
     private String titulo;
+
     private String descricao;
-    private Date data;
-    private Time horario;
-    private String status;
+
+    @NotNull
+    private Date dataInicio;
+
+    private Date dataFinal;
+
+    @NotNull
+    private Time horarioInicio;
+
+    private Time horarioFinal;
 
     @ManyToOne
     @JoinColumn
+    @NotNull
     private Agenda agenda;
     
 }
