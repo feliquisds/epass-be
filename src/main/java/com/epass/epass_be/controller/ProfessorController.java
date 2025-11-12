@@ -28,10 +28,9 @@ public class ProfessorController {
 
     @Operation(summary = "Atualiza um professor no banco de dados")
     @PostMapping("/update/{id}")
-    public Professor update(@PathVariable long id, @RequestBody Professor a) {
-        a.setId(id);
-        Professor novo_professor = professorService.save(a);
-        return novo_professor;
+    public Professor update(@PathVariable long id, @RequestBody Professor professor) {
+        professor.setId(id);
+        return professorService.save(professor);
     }
 
     @Operation(summary = "Lista todos os professores do banco de dados")

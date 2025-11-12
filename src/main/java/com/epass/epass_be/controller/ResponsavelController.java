@@ -28,10 +28,9 @@ public class ResponsavelController {
 
     @Operation(summary = "Atualiza um responsavel no banco de dados")
     @PostMapping("/update/{id}")
-    public Responsavel update(@PathVariable long id, @RequestBody Responsavel a) {
-        a.setId(id);
-        Responsavel novo_responsavel = responsavelService.save(a);
-        return novo_responsavel;
+    public Responsavel update(@PathVariable long id, @RequestBody Responsavel responsavel) {
+        responsavel.setId(id);
+        return responsavelService.save(responsavel);
     }
 
     @Operation(summary = "Lista todos os responsavel do banco de dados")

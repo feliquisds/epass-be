@@ -29,17 +29,15 @@ public class AlunoController {
 
     @Operation(summary = "Salva um aluno no banco de dados")
     @PostMapping("/save")
-    public Aluno save(@RequestBody Aluno a) {
-        Aluno novo_aluno = alunoService.save(a);
-        return novo_aluno;
+    public Aluno save(@RequestBody Aluno aluno) {
+        return alunoService.save(aluno);
     }
 
     @Operation(summary = "Atualiza um aluno no banco de dados")
     @PostMapping("/update/{id}")
-    public Aluno update(@PathVariable long id, @RequestBody Aluno a) {
-        a.setId(id);
-        Aluno novo_aluno = alunoService.save(a);
-        return novo_aluno;
+    public Aluno update(@PathVariable long id, @RequestBody Aluno aluno) {
+        aluno.setId(id);
+        return alunoService.save(aluno);
     }
 
     @Operation(summary = "Lista todos os alunos do banco de dados")

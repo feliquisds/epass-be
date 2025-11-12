@@ -29,15 +29,15 @@ public class CarteiraController {
 
     @Operation(summary = "Salva uma carteira no banco de dados")
     @PostMapping("/save")
-    public Carteira save(@RequestBody Carteira d) {
-        return carteiraService.save(d);
+    public Carteira save(@RequestBody Carteira carteira) {
+        return carteiraService.save(carteira);
     }
 
     @Operation(summary = "Atualiza uma carteira no banco de dados")
     @PostMapping("/update/{id}")
-    public Carteira update(@PathVariable long id, @RequestBody Carteira d) {
-        d.setId(id);
-        return carteiraService.save(d);
+    public Carteira update(@PathVariable long id, @RequestBody Carteira carteira) {
+        carteira.setId(id);
+        return carteiraService.save(carteira);
     }
 
     @Operation(summary = "Lista todas as carteiras do banco de dados")

@@ -29,10 +29,9 @@ public class AgendaController {
 
     @Operation(summary = "Atualiza uma agenda no banco de dados")
     @PostMapping("/update/{id}")
-    public Agenda update(@PathVariable long id, @RequestBody Agenda a) {
-        a.setId(id);
-        Agenda nova_agenda = agendaService.save(a);
-        return nova_agenda;
+    public Agenda update(@PathVariable long id, @RequestBody Agenda agenda) {
+        agenda.setId(id);
+        return agendaService.save(agenda);
     }
 
     @Operation(summary = "Lista todas as agendas do banco de dados")

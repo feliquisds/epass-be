@@ -29,10 +29,9 @@ public class TurmaController {
 
     @Operation(summary = "Atualiza uma turma no banco de dados")
     @PostMapping("/update/{id}")
-    public Turma update(@PathVariable long id, @RequestBody Turma a) {
-        a.setId(id);
-        Turma nova_turma = turmaService.save(a);
-        return nova_turma;
+    public Turma update(@PathVariable long id, @RequestBody Turma turma) {
+        turma.setId(id);
+        return turmaService.save(turma);
     }
 
     @Operation(summary = "Lista todas as turmas do banco de dados")

@@ -29,15 +29,15 @@ public class CompraController {
 
     @Operation(summary = "Salva uma compra no banco de dados")
     @PostMapping("/save")
-    public Compra save(@RequestBody Compra d) {
-        return compraService.save(d);
+    public Compra save(@RequestBody Compra compra) {
+        return compraService.save(compra);
     }
 
     @Operation(summary = "Atualiza uma compra no banco de dados")
     @PostMapping("/update/{id}")
-    public Compra update(@PathVariable long id, @RequestBody Compra d) {
-        d.setId(id);
-        return compraService.save(d);
+    public Compra update(@PathVariable long id, @RequestBody Compra compra) {
+        compra.setId(id);
+        return compraService.save(compra);
     }
 
     @Operation(summary = "Lista todas as compras do banco de dados")

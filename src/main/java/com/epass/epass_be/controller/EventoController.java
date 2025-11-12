@@ -29,10 +29,9 @@ public class EventoController {
 
     @Operation(summary = "Atualiza um evento no banco de dados")
     @PostMapping("/update/{id}")
-    public Evento update(@PathVariable long id, @RequestBody Evento a) {
-        a.setId(id);
-        Evento nova_evento = eventoService.save(a);
-        return nova_evento;
+    public Evento update(@PathVariable long id, @RequestBody Evento evento) {
+        evento.setId(id);
+        return eventoService.save(evento);
     }
 
     @Operation(summary = "Lista todos os eventos do banco de dados")

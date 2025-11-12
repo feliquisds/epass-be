@@ -29,10 +29,9 @@ public class AulaController {
 
     @Operation(summary = "Atualiza uma aula no banco de dados")
     @PostMapping("/update/{id}")
-    public Aula update(@PathVariable long id, @RequestBody Aula a) {
-        a.setId(id);
-        Aula nova_aula = aulaService.save(a);
-        return nova_aula;
+    public Aula update(@PathVariable long id, @RequestBody Aula aula) {
+        aula.setId(id);
+        return aulaService.save(aula);
     }
 
     @Operation(summary = "Lista todas as aulas do banco de dados")

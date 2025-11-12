@@ -23,15 +23,15 @@ public class FrequenciaController {
 
     @Operation(summary = "Salva uma frequência no banco de dados")
     @PostMapping("/save")
-    public Frequencia save(@RequestBody Frequencia f) {
-        return frequenciaService.save(f);
+    public Frequencia save(@RequestBody Frequencia frequencia) {
+        return frequenciaService.save(frequencia);
     }
 
     @Operation(summary = "Atualiza uma frequência no banco de dados")
     @PostMapping("/update/{id}")
-    public Frequencia update(@PathVariable long id, @RequestBody Frequencia f) {
-        f.setId(id);
-        return frequenciaService.save(f);
+    public Frequencia update(@PathVariable long id, @RequestBody Frequencia frequencia) {
+        frequencia.setId(id);
+        return frequenciaService.save(frequencia);
     }
 
     @Operation(summary = "Lista todas as frequências")

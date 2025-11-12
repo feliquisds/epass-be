@@ -29,17 +29,15 @@ public class NotaController {
 
     @Operation(summary = "Salva uma nota no banco de dados")
     @PostMapping("/save")
-    public Nota save(@RequestBody Nota m) {
-        Nota nova_nota = notaService.save(m);
-        return nova_nota;
+    public Nota save(@RequestBody Nota nota) {
+        return notaService.save(nota);
     }
 
     @Operation(summary = "Atualiza uma nota no banco de dados")
     @PostMapping("/update/{id}")
-    public Nota update(@PathVariable long id, @RequestBody Nota m) {
-        m.setId(id);
-        Nota nova_nota = notaService.save(m);
-        return nova_nota;
+    public Nota update(@PathVariable long id, @RequestBody Nota nota) {
+        nota.setId(id);
+        return notaService.save(nota);
     }
 
     @Operation(summary = "Lista todas as notas do banco de dados")

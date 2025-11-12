@@ -29,16 +29,15 @@ public class AtividadeController {
 
     @Operation(summary = "Salva uma atividade no banco de dados")
     @PostMapping("/save")
-    public Atividade save(@RequestBody Atividade a) {
-        Atividade nova_atividade = atividadeService.save(a);
-        return nova_atividade;
+    public Atividade save(@RequestBody Atividade atividade) {
+        return atividadeService.save(atividade);
     }
 
     @Operation(summary = "Atualiza uma atividade no banco de dados")
     @PostMapping("/update/{id}")
-    public Atividade update(@PathVariable long id, @RequestBody Atividade a) {
-        a.setId(id);
-        return atividadeService.save(a);
+    public Atividade update(@PathVariable long id, @RequestBody Atividade atividade) {
+        atividade.setId(id);
+        return atividadeService.save(atividade);
     }
 
     @Operation(summary = "Lista todas as atividades do banco de dados")

@@ -30,15 +30,15 @@ public class DocumentoController {
 
     @Operation(summary = "Salva um documento no banco de dados")
     @PostMapping("/save")
-    public Documento save(@RequestBody Documento d) {
-        return documentoService.save(d);
+    public Documento save(@RequestBody Documento documento) {
+        return documentoService.save(documento);
     }
 
     @Operation(summary = "Atualiza um documento no banco de dados")
     @PostMapping("/update/{id}")
-    public Documento update(@PathVariable long id, @RequestBody Documento d) {
-        d.setId(id);
-        return documentoService.save(d);
+    public Documento update(@PathVariable long id, @RequestBody Documento documento) {
+        documento.setId(id);
+        return documentoService.save(documento);
     }
 
     @Operation(summary = "Lista todos os documentos do banco de dados")

@@ -16,8 +16,8 @@ public class AtividadeService {
         this.atividadeRepository = atividadeRepository;
     }
 
-    public Atividade save(Atividade aluno) {
-        return atividadeRepository.save(aluno);
+    public Atividade save(Atividade atividade) {
+        return atividadeRepository.save(atividade);
     }
 
     public Iterable<Atividade> findAll() {

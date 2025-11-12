@@ -29,17 +29,15 @@ public class DisciplinaController {
 
     @Operation(summary = "Salva uma disciplina no banco de dados")
     @PostMapping("/save")
-    public Disciplina save(@RequestBody Disciplina m) {
-        Disciplina nova_disciplina = disciplinaService.save(m);
-        return nova_disciplina;
+    public Disciplina save(@RequestBody Disciplina disciplina) {
+        return disciplinaService.save(disciplina);
     }
 
     @Operation(summary = "Atualiza uma disciplina no banco de dados")
     @PostMapping("/update/{id}")
-    public Disciplina update(@PathVariable long id, @RequestBody Disciplina m) {
-        m.setId(id);
-        Disciplina nova_disciplina = disciplinaService.save(m);
-        return nova_disciplina;
+    public Disciplina update(@PathVariable long id, @RequestBody Disciplina disciplina) {
+        disciplina.setId(id);
+        return disciplinaService.save(disciplina);
     }
 
     @Operation(summary = "Lista todas as disciplinas do banco de dados")
