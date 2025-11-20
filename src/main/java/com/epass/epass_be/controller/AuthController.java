@@ -29,9 +29,10 @@ public class AuthController {
             );
 
             Usuario usuario = usuarioService.findByEmail(request.getEmail());
+            
             String token = jwtUtil.generateToken(usuario.getEmail());
 
-            return ResponseEntity.ok(new LoginResponse(usuario.getEmail(), usuario.getTipo().name(), token));
+            return ResponseEntity.ok(new LoginResponse(usuario.getEmail(), usuario.getTipo().name(), usuario.getResponsavel().getAlunos().getFirst().getNome(), token));
 
         } catch (AuthenticationException e) {
             return ResponseEntity.status(401).body("Email ou senha inválidos");
@@ -49,6 +50,7 @@ public class AuthController {
     static class LoginResponse {
         private String email;
         private String tipoUsuario;
+        private String nome;
         private String token;
     }
 }
