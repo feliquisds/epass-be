@@ -11,9 +11,9 @@ public class LoginController {
         return "login"; // login.html no templates
     }
 
-    @GetMapping("/home")
-    public String home() {
-        return "home"; // home.html no templates
-    }
+    // @GetMapping("/home")
+    // public String home() {
+    //     return "home"; // home.html no templates
+    // }
     
 }
