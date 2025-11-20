@@ -1,6 +1,5 @@
 package com.epass.epass_be.security;
 
-import com.epass.epass_be.security.UsuarioDetailsService;
 import lombok.AllArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
