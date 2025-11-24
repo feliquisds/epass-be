@@ -32,7 +32,7 @@ public class AuthController {
             
             String token = jwtUtil.generateToken(usuario.getEmail());
 
-            return ResponseEntity.ok(new LoginResponse(usuario.getEmail(), usuario.getTipo().name(), usuario.getResponsavel().getAlunos().getFirst().getNome(), token));
+            return ResponseEntity.ok(new LoginResponse(usuario.getEmail(), usuario.getTipo().name(), usuario.getResponsavel().getAlunos().getFirst().getNome(), token, usuario.getResponsavel().getAlunos().getFirst().getId()));
 
         } catch (AuthenticationException e) {
             return ResponseEntity.status(401).body("Email ou senha inválidos");
@@ -52,5 +52,6 @@ public class AuthController {
         private String tipoUsuario;
         private String nome;
         private String token;
+        private Long id;
     }
 }

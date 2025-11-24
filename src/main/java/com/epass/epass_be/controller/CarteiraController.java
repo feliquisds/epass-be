@@ -58,4 +58,10 @@ public class CarteiraController {
         carteiraService.deleteById(id);
     }
 
+    @Operation(summary = "Busca uma carteira no BD filtrando por aluno")
+    @GetMapping("/aluno/{alunoId}")
+    public Carteira getCarteiraPorAlunoId(@PathVariable Long alunoId) {
+        return carteiraService.buscarCarteiraPorAlunoId(alunoId);
+    }
+
 }

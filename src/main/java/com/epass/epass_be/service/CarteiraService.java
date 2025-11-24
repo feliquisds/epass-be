@@ -31,5 +31,10 @@ public class CarteiraService {
     public void deleteById(long id) {
         CarteiraRepository.deleteById(id);
     }
+
     
+    public Carteira buscarCarteiraPorAlunoId(Long alunoId) {
+        return CarteiraRepository.findByAlunoId(alunoId)
+            .orElseThrow(() -> new RuntimeException("Carteira não encontrada para o Aluno ID: " + alunoId));
+    }
 }

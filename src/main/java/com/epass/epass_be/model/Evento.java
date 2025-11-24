@@ -3,6 +3,8 @@ package com.epass.epass_be.model;
 import java.sql.Date;
 import java.sql.Time;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -25,6 +27,10 @@ public class Evento {
     private String titulo;
 
     private String descricao;
+
+    @Enumerated(EnumType.STRING)
+    @NotNull
+    private Categoria categoria;
 
     @NotNull
     private Date dataInicio;
