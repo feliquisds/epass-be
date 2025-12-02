@@ -23,4 +23,10 @@ public class UsuarioDetailsService implements UserDetailsService {
 
         return new UsuarioDetails(usuario);
     }
+
+    public UserDetails loadUser(String tipoUsuario, Long id) throws UsernameNotFoundException {
+        Usuario usuario = usuarioRepository.findByTipoAndResponsavelId(tipoUsuario, id)
+                .orElseThrow(() -> new UsernameNotFoundException("Usuário não encontrado: " + tipoUsuario + " " + id));
+        return new UsuarioDetails(usuario);
+    }
 }

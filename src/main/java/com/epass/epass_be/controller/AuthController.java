@@ -31,13 +31,24 @@ public class AuthController {
             Usuario usuario = usuarioService.findByEmail(request.getEmail());
             
             String token = jwtUtil.generateToken(usuario.getEmail());
+            // String token = jwtUtil.generateToken(usuario.getTipo().name(), usuario.getResponsavel().getId());
 
-            return ResponseEntity.ok(new LoginResponse(usuario.getEmail(), usuario.getTipo().name(), usuario.getResponsavel().getAlunos().getFirst().getNome(), token, usuario.getResponsavel().getAlunos().getFirst().getId()));
+            return ResponseEntity.ok(new LoginResponse(
+                usuario.getTipo().name(),
+                usuario.getResponsavel().getId(),
+                token));
 
         } catch (AuthenticationException e) {
             return ResponseEntity.status(401).body("Email ou senha inválidos");
         }
     }
+
+    // @PostMapping("/checkToken")
+    // public boolean checkToken(@RequestHeader("Authorization") String token,
+    //                                     @RequestParam String tipoUsuario, @RequestParam Long id) {
+    //     boolean isValid = jwtUtil.isTokenValid(token.replace("Bearer ", ""), tipoUsuario, id);
+    //     return isValid;
+    // }
 
     @Data
     static class LoginRequest {
@@ -48,10 +59,8 @@ public class AuthController {
     @Data
     @AllArgsConstructor
     static class LoginResponse {
-        private String email;
         private String tipoUsuario;
-        private String nome;
-        private String token;
         private Long id;
+        private String token;
     }
 }

@@ -58,4 +58,9 @@ public class AlunoController {
         alunoService.deleteById(id);
     }
 
+    @Operation(summary = "Lista alunos pelo ID do responsável")
+    @GetMapping("/responsavel/{responsavelId}")
+    public List<Aluno> findAllByResponsavel(@PathVariable long responsavelId) {
+        return alunoService.findAllByResponsavel(responsavelId);
+    }
 }

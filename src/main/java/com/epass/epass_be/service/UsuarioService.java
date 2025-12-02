@@ -2,6 +2,9 @@ package com.epass.epass_be.service;
 
 import com.epass.epass_be.model.Usuario;
 import com.epass.epass_be.repository.UsuarioRepository;
+
+import java.util.Optional;
+
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -24,12 +27,12 @@ public class UsuarioService {
         return usuarioRepository.save(usuario);
     }
 
-    // public Optional<Usuario> buscarPorEmail(String email) {
-    //     return usuarioRepository.findByEmail(email);
-    // }
-
     public Usuario findByEmail(String email) {
         return usuarioRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado: " + email));
+    }
+
+    public Optional<Usuario> findByTipoAndResponsavelId(String tipoUsuario, Long id) {
+        return usuarioRepository.findByTipoAndResponsavelId(tipoUsuario, id);
     }
 }

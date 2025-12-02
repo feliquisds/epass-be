@@ -50,4 +50,40 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         filterChain.doFilter(request, response);
     }
+
+    // @Override
+    // protected void doFilterInternal(HttpServletRequest request,
+    //                                 HttpServletResponse response,
+    //                                 FilterChain filterChain) throws ServletException, IOException {
+
+    //     final String authHeader = request.getHeader("Authorization");
+    //     final String tipoUsuario;
+    //     final Long id;
+    //     final String token;
+
+    //     if (authHeader == null || !authHeader.startsWith("Bearer ")) {
+    //         filterChain.doFilter(request, response);
+    //         return;
+    //     }
+
+    //     token = authHeader.substring(7);
+    //     String account = jwtUtil.extractAccount(token);
+    //     String[] parts = account.split(":");
+
+    //     tipoUsuario = parts[0];
+    //     id = Long.parseLong(parts[1]);
+
+    //     if (tipoUsuario != null && id != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+    //         var userDetails = usuarioDetailsService.loadUser(tipoUsuario, id);
+    //         if (jwtUtil.isTokenValid(token, tipoUsuario, id)) {
+    //             UsernamePasswordAuthenticationToken authToken =
+    //                     new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+    //             authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+    //             SecurityContextHolder.getContext().setAuthentication(authToken);
+    //         }
+    //     }
+
+    //     filterChain.doFilter(request, response);
+    // }
 }
